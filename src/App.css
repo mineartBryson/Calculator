@@ -1,0 +1,104 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body, html {
+  height: 100%; /* Ensures the entire viewport is used */
+  margin: 0; /* Prevents unwanted gaps */
+  padding: 0;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+button {
+  min-width: 60px; /* Ensures buttons are big enough for tapping */
+  min-height: 60px;
+  font-size: 1.2rem; /* Adjusts text size for readability */
+}
+
+.calculator_container {
+  border: 2px solid rgb(39, 80, 96);
+  border-radius: 1rem;
+  background: rgb(200, 220, 240);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.display_container {
+  color: black;
+  background-color: rgb(150, 180, 220);
+  border: 1px solid rgb(94, 133, 184);
+  border-radius: 0.8rem;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.button_container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .number_buttons {
+    grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
+  }
+
+  .button_container {
+    flex-direction: column; /* Stack numbers & operators on smaller screens */
+    align-items: center; /* Center everything */
+  }
+}
+
+.number_buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3-column layout for numbers */
+  gap: 5px;
+}
+
+.operator_buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Spacing operators evenly */
+  gap: 5px;
+}
+
