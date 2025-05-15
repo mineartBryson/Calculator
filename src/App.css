@@ -1,104 +1,125 @@
+/* Root container */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
 body, html {
-  height: 100%; /* Ensures the entire viewport is used */
-  margin: 0; /* Prevents unwanted gaps */
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Stylish gradient */
+    color: white; /* Ensure text stands out */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Calculator Container */
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Title */
+.calculator__title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #00D1FF;
+    text-shadow: 2px 2px 10px rgba(0, 209, 255, 0.5);
+    margin-bottom: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Calculator Layout - Glassmorphism Effect */
+.calculator__container {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-button {
-  min-width: 60px; /* Ensures buttons are big enough for tapping */
-  min-height: 60px;
-  font-size: 1.2rem; /* Adjusts text size for readability */
+
+/* Display */
+.calculator__display {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.calculator_container {
-  border: 2px solid rgb(39, 80, 96);
-  border-radius: 1rem;
-  background: rgb(200, 220, 240);
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  max-width: 400px;
+/* Buttons Layout */
+.calculator__buttons {
+    display: flex;
+    justify-content: space-between; /* Push numbers & operators apart */
+    align-items: flex-start; /* Align them at the top */
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
 }
 
-.display_container {
-  color: black;
-  background-color: rgb(150, 180, 220);
-  border: 1px solid rgb(94, 133, 184);
-  border-radius: 0.8rem;
-  height: 40px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-  width: 100%;
+
+/* Buttons with Hover Effects */
+.calculator__button {
+    min-width: 60px;
+    min-height: 60px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.3);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.button_container {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  justify-content: center;
+/* Button Hover Effects */
+.calculator__button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.5);
 }
 
+/* Number Buttons */
+.calculator__number-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px; /* Slightly more space */
+    flex: 2; /* Gives numbers more room */
+}
+
+
+/* Operator Buttons */
+.calculator__operator-buttons {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr); /* Ensures even spacing */
+    align-items: center;
+    gap: 10px;
+    flex: 1; /* Reduces the vertical space taken */
+}
+
+.calculator__button--operator {
+    height: 60px; /* Force operators to match number button height */
+}
+
+/* Responsive Styling */
 @media (max-width: 600px) {
-  .number_buttons {
-    grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
-  }
+    .calculator__number-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-  .button_container {
-    flex-direction: column; /* Stack numbers & operators on smaller screens */
-    align-items: center; /* Center everything */
-  }
+    .calculator__buttons {
+        flex-direction: column;
+        align-items: center;
+    }
 }
-
-.number_buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3-column layout for numbers */
-  gap: 5px;
-}
-
-.operator_buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Spacing operators evenly */
-  gap: 5px;
-}
-
