@@ -1,3 +1,6 @@
+// calculate.js
+// This is where all of the arithmetic happens when the user presses "="
+
 import { evaluate } from 'mathjs';
 export const Calculate = (expression) => {
   try {
